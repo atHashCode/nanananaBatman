@@ -1,5 +1,6 @@
 package com.atsistemas.hashcode.batmaaaaan;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -8,7 +9,7 @@ import org.slf4j.LoggerFactory;
 public class Score {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Score.class);
-	private List<Ride> carreras;
+	private List<Ride> carreras = new ArrayList<>();
 	private Integer bonus;
 	
 	public Score(List<Ride> carreras, Integer bonus) {
