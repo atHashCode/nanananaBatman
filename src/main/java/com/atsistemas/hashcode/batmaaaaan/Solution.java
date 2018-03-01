@@ -111,16 +111,16 @@ public class Solution {
 
 	}
 
-
-	public void evaluate() {
+	
+	public Integer evaluate() {
 		puntuacion = 0;
 		Integer i = 0;
 		for (List car : cars) {
 			Integer carValue =  score.calculaScore(car);
-			LOGGER.info("Car " + i + " gets -> " +carValue);
+//			LOGGER.info("Car " + i + " gets -> " +carValue);
 			puntuacion += carValue;
 		}
-
+		return puntuacion;
 	}
 
 	public void mutate() {
@@ -154,6 +154,11 @@ public class Solution {
 		} catch (IOException e) {
 			LOGGER.error(e.getMessage());
 		}
+	}
+
+	
+	public String getFilename() {
+		return inputFile;
 	}
 
 }
