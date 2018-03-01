@@ -2,6 +2,7 @@ package com.atsistemas.hashcode.batmaaaaan;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,12 +19,13 @@ public class Solution {
     
     private List<List<String>> cars;
 //
+    private List<Ride> carreras = new ArrayList();
     private Integer puntuacion = 0;
     
     private Integer carsNumber = 0;
     private Integer raceNumber = 0;
 
-    public Solution(String inputFile, String candidate) {
+    public Solution(String inputFile, String candidate) throws FileNotFoundException, IOException {
 
         try (FileReader fileReader = new FileReader(inputFile)) {
             BufferedReader br = new BufferedReader(fileReader);
@@ -33,16 +35,11 @@ public class Solution {
             raceNumber = Integer.parseInt(datos[3]);
     		List<Ride> fila = new ArrayList<>();
             int row = 0;
-            String fileLine;
             while ((fileLine = br.readLine()) != null) {
-            		fileLine
-//                for (int column = 0; column < fileLine.length(); column++) {
-//                    Character literal = fileLine.charAt(column);
-//
-//                    fila.add(new Celda(row, column, literal.toString()));
-//                }
-//                celdas.add(fila);
-                row++;
+            	datos  = fileLine.split(" ");
+            	carreras.add(new Ride(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),
+            	Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),
+            	Integer.parseInt(datos[4]),Integer.parseInt(datos[5])));
             }
         }
  
