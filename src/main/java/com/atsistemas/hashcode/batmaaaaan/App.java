@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 public class App 
 {
 	
-	final String FILENAME = "a_example";
-	final String PARTIAL_SOLUTION = "";
+	final static String FILENAME = "a_example";
+	final static String PARTIAL_SOLUTION = "";
 	
 	public static void main(String[] args) {
 
@@ -17,6 +17,6 @@ public class App
 		solution.optimize();
 		solution.evaluate();
 		solution.mutate();
-		solution.save();
+		solution.saveSolution();
 	}
 }

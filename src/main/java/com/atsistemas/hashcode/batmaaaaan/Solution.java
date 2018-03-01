@@ -51,7 +51,7 @@ public class Solution {
 	public void generateSolution() {
 		
 		for (int i=0; i< raceNumber ;i++)
-			cars.get(new Random().nextInt(carsNumber)).add(i)
+			cars.get(new Random().nextInt(carsNumber)).add(i+"");
 	}
 
     public Solution(String inputFile) {
@@ -105,7 +105,6 @@ public class Solution {
 	private void save(String folder) {
 		
 		StringBuilder result = new StringBuilder(10);
-		result.append(porciones.size()).append("\n");
 		for (List<String> car : cars) {
 			result.append(car.size() + " ");
 			result.append(String.join(" ", car));
@@ -113,7 +112,7 @@ public class Solution {
 		}
 		
         try (FileWriter fileWriter = new FileWriter(new File("files/" + folder + "/"+puntuacion + "-" + new Date() + ".txt"))) {
-        	fileWriter.write(result);
+        	fileWriter.write(result.toString());
         } catch (IOException e) {
 			LOGGER.error(e.getMessage());
 		}
