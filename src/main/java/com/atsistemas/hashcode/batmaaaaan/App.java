@@ -20,14 +20,41 @@ public class App
 		try {
 //			solution = new Solution();
 //			solution.cargaInicial("files/input/a_example.in");
-			solution = new Solution(FILENAME, PARTIAL_SOLUTION);
+			solution = new Solution("a_example.in", PARTIAL_SOLUTION);
 			solution.generateSolution();
 			solution.optimize();
 			solution.evaluate();
 			solution.mutate();
-			solution.saveSolution();
-
 			solution.saveOutput();
+			
+			solution = new Solution("b_should_be_easy.in", PARTIAL_SOLUTION);
+			solution.generateSolution();
+			solution.optimize();
+			solution.evaluate();
+			solution.mutate();
+			solution.saveOutput();
+			
+			solution = new Solution("c_no_hurry.in", PARTIAL_SOLUTION);
+			solution.generateSolution();
+			solution.optimize();
+			solution.evaluate();
+			solution.mutate();
+			solution.saveOutput();
+			
+			solution = new Solution("d_metropolis.in", PARTIAL_SOLUTION);
+			solution.generateSolution();
+			solution.optimize();
+			solution.evaluate();
+			solution.mutate();
+			solution.saveOutput();
+			
+			solution = new Solution("e_high_bonus.in", PARTIAL_SOLUTION);
+			solution.generateSolution();
+			solution.optimize();
+			solution.evaluate();
+			solution.mutate();
+			solution.saveOutput();
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

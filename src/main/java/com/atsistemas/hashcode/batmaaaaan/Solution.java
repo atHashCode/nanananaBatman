@@ -98,10 +98,12 @@ public class Solution {
 	}
 	
 	public void mutate() {
-//		for () {
-//			long seed = System.nanoTime();
-//			Collections.shuffle(car, new Random(seed));
-//		}
+		
+		for (List car : cars) {
+			long seed = System.nanoTime();
+			Collections.shuffle(car, new Random(seed));
+		}
+
 	}
 	
 	public void saveSolution() {
