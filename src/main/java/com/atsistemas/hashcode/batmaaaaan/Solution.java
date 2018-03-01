@@ -19,7 +19,7 @@ public class Solution {
     
     private List<List<String>> cars;
 //
-    private List<Ride> carreras = new ArrayList();
+    private List<Ride> carreras = new ArrayList<>();
     private Integer puntuacion = 0;
     
     private Integer carsNumber = 0;
@@ -33,8 +33,6 @@ public class Solution {
             String datos[] = fileLine.split(" ");
             carsNumber = Integer.parseInt(datos[2]);
             raceNumber = Integer.parseInt(datos[3]);
-    		List<Ride> fila = new ArrayList<>();
-            int row = 0;
             while ((fileLine = br.readLine()) != null) {
             	datos  = fileLine.split(" ");
             	carreras.add(new Ride(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),
@@ -62,8 +60,6 @@ public class Solution {
             String [] datos = fileLine.split(" ");
             carsNumber = Integer.parseInt(datos[2]);
             raceNumber = Integer.parseInt(datos[3]);
-            List<List<Ride>> ride = new ArrayList<>();
-            int row = 0;
             while ((fileLine = br.readLine()) != null) {
             		List<Ride> fila = new ArrayList<>();
             		datos = fileLine.split(" ");
@@ -71,13 +67,6 @@ public class Solution {
             				Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),
             				Integer.parseInt(datos[4]),Integer.parseInt(datos[5])));
             		
-//                for (int column = 0; column < fileLine.length(); column++) {
-//                    Character literal = fileLine.charAt(column);
-//
-//                    fila.add(new Celda(row, column, literal.toString()));
-//                }
-//                celdas.add(fila);
-                row++;
             }
         }
  
