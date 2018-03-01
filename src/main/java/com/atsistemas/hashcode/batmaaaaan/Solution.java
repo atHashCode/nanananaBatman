@@ -25,6 +25,7 @@ public class Solution {
     
     private Integer carsNumber = 800;
     private Integer raceNumber = 1000;
+    private Integer bonus = 1000;
     private String inputFile = "";
 
     public Solution(String inputFile, String candidate) throws FileNotFoundException, IOException {
@@ -74,6 +75,7 @@ public class Solution {
             String [] datos = fileLine.split(" ");
             carsNumber = Integer.parseInt(datos[2]);
             raceNumber = Integer.parseInt(datos[3]);
+            bonus = Integer.parseInt(datos[4]);
             while ((fileLine = br.readLine()) != null) {
             		List<Ride> fila = new ArrayList<>();
             		datos = fileLine.split(" ");
