@@ -13,9 +13,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.atsistemas.hashcode.pizza.Celda;
+import com.atsistemas.hashcode.pizza.Porcion;
 
 public class Solution {
     private static final Logger LOGGER = LoggerFactory.getLogger(Solution.class);
+    
+    private List<List<String>> cars;
 //
     private Integer puntuacion = 0;
 
@@ -24,7 +27,7 @@ public class Solution {
         try (FileReader fileReader = new FileReader(inputFile)) {
             BufferedReader br = new BufferedReader(fileReader);
             br.readLine();
-//            List<List<Celda>> celdas = new ArrayList<>();
+            List<List<Celda>> cars = new ArrayList<>();
             int row = 0;
             String fileLine;
             while ((fileLine = br.readLine()) != null) {
@@ -65,8 +68,17 @@ public class Solution {
 	}
 	
 	private void save(String folder) {
+		
+		StringBuilder result = new StringBuilder(10);
+		result.append(porciones.size()).append("\n");
+		for (List<String> car : cars) {
+			result.append(car.size() + " ");
+			result.append(String.join(" ", car));
+			result.append("\n");
+		}
+		
         try (FileWriter fileWriter = new FileWriter(new File("files/" + folder + "/"+puntuacion + "-" + new Date() + ".txt"))) {
-        	fileWriter.write(solucion.toString());
+        	fileWriter.write(result);
         } catch (IOException e) {
 			LOGGER.error(e.getMessage());
 		}
