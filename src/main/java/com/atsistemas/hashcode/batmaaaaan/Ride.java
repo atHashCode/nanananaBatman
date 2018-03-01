@@ -19,6 +19,9 @@ public class Ride {
 		distancia = coordInicio.calcularDistanciaDesde(coordFin);
 	}
 
+	public Integer distanciaACarrera(Ride ride) {
+		return this.getCoordFin().calcularDistanciaDesde(ride.getCoordInicio());
+	}
 	/**
 	 * @return the coordInicio
 	 */
