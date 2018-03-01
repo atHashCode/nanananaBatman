@@ -51,17 +51,22 @@ public class Solution {
 			cars.get(new Random().nextInt(carsNumber)).add(i+"");
 	}
 
-    public Solution(String inputFile) {
+    public Solution() {
+    }
+    
+    public void cargaInicial(String inputFile) throws FileNotFoundException, IOException {
 
         try (FileReader fileReader = new FileReader(inputFile)) {
             BufferedReader br = new BufferedReader(fileReader);
-            br.readLine();
+            String fileLine = br.readLine();
+            String [] datos = fileLine.split(" ");
+            carsNumber = Integer.parseInt(datos[2]);
+            raceNumber = Integer.parseInt(datos[3]);
             List<List<Ride>> ride = new ArrayList<>();
             int row = 0;
-            String fileLine;
             while ((fileLine = br.readLine()) != null) {
             		List<Ride> fila = new ArrayList<>();
-            		String [] datos = fileLine.split(" ");
+            		datos = fileLine.split(" ");
             		fila.add(new Ride(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),
             				Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),
             				Integer.parseInt(datos[4]),Integer.parseInt(datos[5])));
