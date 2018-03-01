@@ -114,8 +114,11 @@ public class Solution {
 
 	public void evaluate() {
 		puntuacion = 0;
+		Integer i = 0;
 		for (List car : cars) {
-			puntuacion += score.calculaScore(car);
+			Integer carValue =  score.calculaScore(car);
+			LOGGER.info("Car " + i + " gets -> " +carValue);
+			puntuacion += carValue;
 		}
 
 	}
