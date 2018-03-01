@@ -14,6 +14,7 @@ public class Score {
 	
 	public Score(List<Ride> carreras, Integer bonus) {
 		this.carreras.addAll(carreras);
+		this.bonus = bonus;
 	}
 	
 	public Integer calculaScore(List<String> carrerasCoche) {
@@ -28,8 +29,8 @@ public class Score {
 			Integer fin = carrera.getFin();
 			if (step + distancia <= fin) {
 				score += distancia;
-				if (inicio == step) {
-					score += distancia + bonus;
+				if (step == inicio) {
+					score += bonus;
 				}
 			}
 			ultimaPosicion = carrera.getCoordFin();

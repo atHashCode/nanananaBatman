@@ -32,8 +32,12 @@ public class Posicion {
 	public int calcularDistanciaDesde(Posicion parametros) {
 		int cateto1 = this.x - parametros.getX();
 		int cateto2 = this.y - parametros.getY();
+//		cateto2=(int) Math.sqrt(cateto2*cateto2);
+
+//		cateto1=(int) Math.sqrt(cateto1*cateto1);
 		int hipotenusa = (int) Math.sqrt(cateto1*cateto1 + cateto2*cateto2);
 		return hipotenusa;
+		//		return cateto2+cateto1;
 	}
 
 
