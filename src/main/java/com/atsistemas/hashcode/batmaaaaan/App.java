@@ -18,6 +18,7 @@ public class App
 	   
 		Solution solution;
 		try {
+			solution = new Solution("a_example.in", "a_example.in.txt", PARTIAL_SOLUTION);
 //			solution = new Solution();
 //			solution.cargaInicial("files/input/a_example.in");
 			solution = new Solution("a_example.in", PARTIAL_SOLUTION);

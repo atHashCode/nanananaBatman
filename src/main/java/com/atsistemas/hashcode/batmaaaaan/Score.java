@@ -26,7 +26,7 @@ public class Score {
 			Integer distancia = carrera.getDistancia();
 			Integer inicio = carrera.getInicio();
 			Integer fin = carrera.getFin();
-			if (fin <= step + distancia) {
+			if (step + distancia <= fin) {
 				score += distancia;
 				if (inicio == step) {
 					score += distancia + bonus;
