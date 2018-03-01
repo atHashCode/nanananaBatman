@@ -8,12 +8,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.atsistemas.hashcode.pizza.Celda;
-import com.atsistemas.hashcode.pizza.Porcion;
 
 public class Solution {
     private static final Logger LOGGER = LoggerFactory.getLogger(Solution.class);
@@ -21,6 +19,9 @@ public class Solution {
     private List<List<String>> cars;
 //
     private Integer puntuacion = 0;
+    
+    private Integer carsNumber = 0;
+    private Integer raceNumber = 0;
 
     public Solution(String inputFile, String candidate) {
 
@@ -43,6 +44,12 @@ public class Solution {
         }
  
     }
+    
+	public void generateSolution() {
+		
+		for (int i=0; i< raceNumber ;i++)
+			cars.get(new Random().nextInt(carsNumber)).add(i)
+	}
 
 
 	public void optimize() {
