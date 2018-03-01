@@ -107,7 +107,6 @@ public class App
 			finalSolution.saveOutput();
 
 			LOGGER.info("DONE!");
->>>>>>> Reries
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
