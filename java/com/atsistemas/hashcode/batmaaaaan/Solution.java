@@ -31,7 +31,7 @@ public class Solution {
             int row = 0;
             String fileLine;
             while ((fileLine = br.readLine()) != null) {
-//                List<Celda> fila = new ArrayList<>();
+            		List<Ride> fila = new ArrayList<>();
 //                for (int column = 0; column < fileLine.length(); column++) {
 //                    Character literal = fileLine.charAt(column);
 //
@@ -44,7 +44,32 @@ public class Solution {
  
     }
 
+    public Solution(String inputFile) {
 
+        try (FileReader fileReader = new FileReader(inputFile)) {
+            BufferedReader br = new BufferedReader(fileReader);
+            br.readLine();
+            List<List<Ride>> ride = new ArrayList<>();
+            int row = 0;
+            String fileLine;
+            while ((fileLine = br.readLine()) != null) {
+            		List<Ride> fila = new ArrayList<>();
+            		String [] datos = fileLine.split(" ");
+            		fila.add(new Ride(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),
+            				Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),
+            				Integer.parseInt(datos[4]),Integer.parseInt(datos[5])));
+            		
+//                for (int column = 0; column < fileLine.length(); column++) {
+//                    Character literal = fileLine.charAt(column);
+//
+//                    fila.add(new Celda(row, column, literal.toString()));
+//                }
+//                celdas.add(fila);
+                row++;
+            }
+        }
+ 
+    }
 	public void optimize() {
 
 	}
