@@ -16,7 +16,7 @@ import com.atsistemas.hashcode.pizza.Celda;
 
 public class Solution {
     private static final Logger LOGGER = LoggerFactory.getLogger(Solution.class);
-
+//
     private Integer puntuacion = 0;
 
     public Solution(String inputFile, String candidate) {
