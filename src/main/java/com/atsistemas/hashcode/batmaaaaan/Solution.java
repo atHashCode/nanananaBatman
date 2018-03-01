@@ -63,7 +63,7 @@ public class Solution {
             while ((fileLine = br.readLine()) != null) {
             		List<Ride> fila = new ArrayList<>();
             		datos = fileLine.split(" ");
-            		fila.add(new Ride(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),
+            		carreras.add(new Ride(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),
             				Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),
             				Integer.parseInt(datos[4]),Integer.parseInt(datos[5])));
             		
