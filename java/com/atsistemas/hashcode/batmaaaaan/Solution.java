@@ -27,12 +27,15 @@ public class Solution {
 
         try (FileReader fileReader = new FileReader(inputFile)) {
             BufferedReader br = new BufferedReader(fileReader);
-            br.readLine();
-            List<List<Celda>> cars = new ArrayList<>();
+            String fileLine = br.readLine();
+            String datos[] = fileLine.split(" ");
+            carsNumber = Integer.parseInt(datos[2]);
+            raceNumber = Integer.parseInt(datos[3]);
+    		List<Ride> fila = new ArrayList<>();
             int row = 0;
             String fileLine;
             while ((fileLine = br.readLine()) != null) {
-            		List<Ride> fila = new ArrayList<>();
+            		fileLine
 //                for (int column = 0; column < fileLine.length(); column++) {
 //                    Character literal = fileLine.charAt(column);
 //
