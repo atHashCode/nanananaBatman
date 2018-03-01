@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Random;
 
@@ -24,22 +25,25 @@ public class Solution {
     
     private Integer carsNumber = 800;
     private Integer raceNumber = 1000;
+    private String inputFile = "";
 
     public Solution(String inputFile, String candidate) throws FileNotFoundException, IOException {
 
-        try (FileReader fileReader = new FileReader(inputFile)) {
-            BufferedReader br = new BufferedReader(fileReader);
-            String fileLine = br.readLine();
-            String datos[] = fileLine.split(" ");
-            carsNumber = Integer.parseInt(datos[2]);
-            raceNumber = Integer.parseInt(datos[3]);
-            while ((fileLine = br.readLine()) != null) {
-            	datos  = fileLine.split(" ");
-            	carreras.add(new Ride(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),
-            	Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),
-            	Integer.parseInt(datos[4]),Integer.parseInt(datos[5])));
-            }
-        }
+//    	this.inputFile = inputFile;
+//        try (FileReader fileReader = new FileReader(inputFile)) {
+//            BufferedReader br = new BufferedReader(fileReader);
+//            String fileLine = br.readLine();
+//            String datos[] = fileLine.split(" ");
+//            carsNumber = Integer.parseInt(datos[2]);
+//            raceNumber = Integer.parseInt(datos[3]);
+//            while ((fileLine = br.readLine()) != null) {
+//            	datos  = fileLine.split(" ");
+//            	carreras.add(new Ride(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),
+//            	Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),
+//            	Integer.parseInt(datos[4]),Integer.parseInt(datos[5])));
+//            }
+//        }
+        cargaInicial(inputFile);
  
     }
     
@@ -62,7 +66,8 @@ public class Solution {
     
     public void cargaInicial(String inputFile) throws FileNotFoundException, IOException {
 
-
+    	this.inputFile = inputFile;
+    	inputFile = "files/input/"+ inputFile;
         try (FileReader fileReader = new FileReader(inputFile)) {
             BufferedReader br = new BufferedReader(fileReader);
             String fileLine = br.readLine();
@@ -72,7 +77,7 @@ public class Solution {
             while ((fileLine = br.readLine()) != null) {
             		List<Ride> fila = new ArrayList<>();
             		datos = fileLine.split(" ");
-            		fila.add(new Ride(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),
+            		carreras.add(new Ride(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),
             				Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),
             				Integer.parseInt(datos[4]),Integer.parseInt(datos[5])));
             		
@@ -91,7 +96,10 @@ public class Solution {
 	}
 	
 	public void mutate() {
-
+//		for () {
+//			long seed = System.nanoTime();
+//			Collections.shuffle(car, new Random(seed));
+//		}
 	}
 	
 	public void saveSolution() {
@@ -111,7 +119,7 @@ public class Solution {
 			result.append("\n");
 		}
 		
-        try (FileWriter fileWriter = new FileWriter(new File("files/" + folder + "/"+ puntuacion + "-" + new Date() + ".txt"))) {
+        try (FileWriter fileWriter = new FileWriter(new File("files/" + folder + "/"+ inputFile + "-" + puntuacion + "-" + new Date() + ".txt"))) {
         	fileWriter.write(result.toString());
         } catch (IOException e) {
 			LOGGER.error(e.getMessage());

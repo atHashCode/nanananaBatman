@@ -18,9 +18,9 @@ public class App
 	   
 		Solution solution;
 		try {
-			solution = new Solution();
-			solution.cargaInicial("files/input/a_example.in");
-			solution = new Solution("files/input/"+FILENAME, "files/input/"+PARTIAL_SOLUTION);
+//			solution = new Solution();
+//			solution.cargaInicial("files/input/a_example.in");
+			solution = new Solution(FILENAME, PARTIAL_SOLUTION);
 			solution.generateSolution();
 			solution.optimize();
 			solution.evaluate();
