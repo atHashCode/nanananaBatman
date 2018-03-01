@@ -19,7 +19,7 @@ public class Solution {
     private static final Logger LOGGER = LoggerFactory.getLogger(Solution.class);
 
     ArrayList<ArrayList<String>> cars;
-//
+
     private List<Ride> carreras = new ArrayList<>();
     private Integer puntuacion = 0;
     
@@ -27,45 +27,9 @@ public class Solution {
     private Integer raceNumber = 1000;
     private Integer bonus = 1000;
     private String inputFile = "";
+    private Score score;
 
     public Solution(String inputFile, String candidate) throws FileNotFoundException, IOException {
-
-//    	this.inputFile = inputFile;
-//        try (FileReader fileReader = new FileReader(inputFile)) {
-//            BufferedReader br = new BufferedReader(fileReader);
-//            String fileLine = br.readLine();
-//            String datos[] = fileLine.split(" ");
-//            carsNumber = Integer.parseInt(datos[2]);
-//            raceNumber = Integer.parseInt(datos[3]);
-//            while ((fileLine = br.readLine()) != null) {
-//            	datos  = fileLine.split(" ");
-//            	carreras.add(new Ride(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),
-//            	Integer.parseInt(datos[2]),Integer.parseInt(datos[3]),
-//            	Integer.parseInt(datos[4]),Integer.parseInt(datos[5])));
-//            }
-//        }
-        cargaInicial(inputFile);
- 
-    }
-    
-	public void generateSolution() {
-		cars = new ArrayList<ArrayList<String>>();
-		for (int i=0; i< carsNumber ;i++) {
-			cars.add(new ArrayList<String>());
-		}
-		for (int i=0; i< raceNumber ;i++) {
-			
-			List <String> car = cars.get(new Random().nextInt(carsNumber));
-			if (car == null) car = new ArrayList();
-			
-			cars.get(new Random().nextInt(carsNumber)).add(i+"");
-		}
-	}
-
-    public Solution() {
-    }
-    
-    public void cargaInicial(String inputFile) throws FileNotFoundException, IOException {
 
     	this.inputFile = inputFile;
     	inputFile = "files/input/"+ inputFile;
@@ -85,8 +49,26 @@ public class Solution {
             		
             }
         }
+        
+        score = new Score(carreras,bonus);
  
     }
+    
+	public void generateSolution() {
+		cars = new ArrayList<ArrayList<String>>();
+		for (int i=0; i< carsNumber ;i++) {
+			cars.add(new ArrayList<String>());
+		}
+		for (int i=0; i< raceNumber ;i++) {
+			
+			List <String> car = cars.get(new Random().nextInt(carsNumber));
+			if (car == null) car = new ArrayList();
+			
+			cars.get(new Random().nextInt(carsNumber)).add(i+"");
+		}
+	}
+
+    
 	public void optimize() {
 
 	}
@@ -94,6 +76,9 @@ public class Solution {
 	
 	public void evaluate() {
 		puntuacion = 0;
+		for (List car : cars) {
+			puntuacion += score.calculaScore(car);
+		}
 
 	}
 	

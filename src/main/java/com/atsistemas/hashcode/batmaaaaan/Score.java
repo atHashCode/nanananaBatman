@@ -15,11 +15,12 @@ public class Score {
 		this.carreras.addAll(carreras);
 	}
 	
-	public Integer calculaScore() {
+	public Integer calculaScore(List<String> carrerasCoche) {
 		Integer score = 0;
 		Integer step = 0;
 		Posicion ultimaPosicion = new Posicion(0,0);
-		for (Ride carrera : carreras) {
+		for (String posicion : carrerasCoche) {
+			Ride carrera = carreras.get(Integer.parseInt(posicion));
 			step += ultimaPosicion.calcularDistanciaDesde(carrera.getCoordInicio()); 
 			Integer distancia = carrera.getDistancia();
 			Integer inicio = carrera.getInicio();
