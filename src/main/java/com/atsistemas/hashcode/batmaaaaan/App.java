@@ -28,10 +28,10 @@ public class App
 				nuevaPuntuacion = solution.evaluate();
 				solution.mutate();
 				solution.saveOutput();
-				if (nuevaPuntuacion>=puntuacion) { 
+				if (nuevaPuntuacion>=puntuacion)  { 
+					LOGGER.info("DING!!! on " + i + " - " + (nuevaPuntuacion-puntuacion) + " - " + solution.getFilename());
 					puntuacion = nuevaPuntuacion;
 					finalSolution = solution;
-					LOGGER.info("DING!!! "+ i + " - " + solution.getFilename());
 				}
 			}
 			finalSolution.saveOutput();
@@ -45,10 +45,10 @@ public class App
 				solution.optimize();
 				nuevaPuntuacion = solution.evaluate();
 				solution.mutate();
-				if (nuevaPuntuacion>=puntuacion) { 
+				if (nuevaPuntuacion>=puntuacion)  { 
+					LOGGER.info("DING!!! on " + i + " - " + (nuevaPuntuacion-puntuacion) + " - " + solution.getFilename());
 					puntuacion = nuevaPuntuacion;
 					finalSolution = solution;
-					LOGGER.info("DING!!! "+ i + " - " + solution.getFilename());
 				}
 			}
 			finalSolution.saveOutput();
@@ -63,10 +63,10 @@ public class App
 				nuevaPuntuacion = solution.evaluate();
 				solution.mutate();
 				
-				if (nuevaPuntuacion>=puntuacion) { 
+				if (nuevaPuntuacion>=puntuacion)  { 
+					LOGGER.info("DING!!! on " + i + " - " + (nuevaPuntuacion-puntuacion) + " - " + solution.getFilename());
 					puntuacion = nuevaPuntuacion;
 					finalSolution = solution;
-					LOGGER.info("DING!!! "+ i + " - " + solution.getFilename());
 				}
 			}
 			finalSolution.saveOutput();
@@ -79,10 +79,10 @@ public class App
 				nuevaPuntuacion = solution.evaluate();
 				solution.mutate();
 				
-				if (nuevaPuntuacion>=puntuacion) { 
+				if (nuevaPuntuacion>=puntuacion)  { 
+					LOGGER.info("DING!!! on " + i + " - " + (nuevaPuntuacion-puntuacion) + " - " + solution.getFilename());
 					puntuacion = nuevaPuntuacion;
 					finalSolution = solution;
-					LOGGER.info("DING!!! "+ i + " - " + solution.getFilename());
 				}
 			}
 			finalSolution.saveOutput();
@@ -98,9 +98,9 @@ public class App
 				solution.mutate();
 
 				if (nuevaPuntuacion>=puntuacion)  { 
+					LOGGER.info("DING!!! on " + i + " - " + (nuevaPuntuacion-puntuacion) + " - " + solution.getFilename());
 					puntuacion = nuevaPuntuacion;
 					finalSolution = solution;
-					LOGGER.info("DING!!! "+ i + " - " + solution.getFilename());
 				}
 			}
 
