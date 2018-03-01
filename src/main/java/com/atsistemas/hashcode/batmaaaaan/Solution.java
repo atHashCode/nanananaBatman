@@ -16,14 +16,14 @@ import org.slf4j.LoggerFactory;
 
 public class Solution {
     private static final Logger LOGGER = LoggerFactory.getLogger(Solution.class);
-    
-    private List<List<String>> cars;
+
+    ArrayList<ArrayList<String>> cars;
 //
     private List<Ride> carreras = new ArrayList<>();
     private Integer puntuacion = 0;
     
-    private Integer carsNumber = 0;
-    private Integer raceNumber = 0;
+    private Integer carsNumber = 800;
+    private Integer raceNumber = 1000;
 
     public Solution(String inputFile, String candidate) throws FileNotFoundException, IOException {
 
@@ -44,15 +44,24 @@ public class Solution {
     }
     
 	public void generateSolution() {
-		
-		for (int i=0; i< raceNumber ;i++)
+		cars = new ArrayList<ArrayList<String>>();
+		for (int i=0; i< carsNumber ;i++) {
+			cars.add(new ArrayList<String>());
+		}
+		for (int i=0; i< raceNumber ;i++) {
+			
+			List <String> car = cars.get(new Random().nextInt(carsNumber));
+			if (car == null) car = new ArrayList();
+			
 			cars.get(new Random().nextInt(carsNumber)).add(i+"");
+		}
 	}
 
     public Solution() {
     }
     
     public void cargaInicial(String inputFile) throws FileNotFoundException, IOException {
+
 
         try (FileReader fileReader = new FileReader(inputFile)) {
             BufferedReader br = new BufferedReader(fileReader);
@@ -102,7 +111,7 @@ public class Solution {
 			result.append("\n");
 		}
 		
-        try (FileWriter fileWriter = new FileWriter(new File("files/" + folder + "/"+puntuacion + "-" + new Date() + ".txt"))) {
+        try (FileWriter fileWriter = new FileWriter(new File("files/" + folder + "/"+ puntuacion + "-" + new Date() + ".txt"))) {
         	fileWriter.write(result.toString());
         } catch (IOException e) {
 			LOGGER.error(e.getMessage());
