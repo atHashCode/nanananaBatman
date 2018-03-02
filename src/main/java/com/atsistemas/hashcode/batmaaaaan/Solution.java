@@ -151,7 +151,7 @@ public class Solution {
 			result.append("\n");
 		}
 
-		try (FileWriter fileWriter = new FileWriter(new File("files/" + folder + "/"+ inputFile + "-" + puntuacion + "-" + Math.random() + ".txt"))) {
+		try (FileWriter fileWriter = new FileWriter(new File("files/" + folder + "/"+ inputFile + ".txt"))) {
 			fileWriter.write(result.toString());
 		} catch (IOException e) {
 			LOGGER.error(e.getMessage());

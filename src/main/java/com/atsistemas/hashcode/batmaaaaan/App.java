@@ -11,7 +11,7 @@ public class App
 	
 	final static String FILENAME = "a_example.in";
 	final static String PARTIAL_SOLUTION = "";
-	final static Integer RETRIES = 1000;
+	final static Integer RETRIES = 10000;
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 
@@ -19,8 +19,8 @@ public class App
 	    Integer puntuacion = 0;
 	    Integer nuevaPuntuacion = 0;
 
-		Solution finalSolutionS = new Solution("d_metropolis.in", "d_metropolis.txt", PARTIAL_SOLUTION);
-		finalSolutionS.evaluate();
+		//Solution finalSolutionS = new Solution("d_metropolis.in", "d_metropolis.txt", PARTIAL_SOLUTION);
+		//finalSolutionS.evaluate();
 		Solution finalSolution = new Solution("a_example.in", PARTIAL_SOLUTION);
 		try {			for (int i = 0; i<RETRIES; i++) {
 			Solution solution = new Solution("e_high_bonus.in", PARTIAL_SOLUTION);
@@ -33,6 +33,8 @@ public class App
 				LOGGER.info("DING!!! on " + i + " - " + (nuevaPuntuacion-puntuacion) + " - " + solution.getFilename());
 				puntuacion = nuevaPuntuacion;
 				finalSolution = solution;
+			}else {
+				LOGGER.info("puntuacion no superada anterior = "+puntuacion+" nueva = "+nuevaPuntuacion);
 			}
 		}
 		    puntuacion = 0;
