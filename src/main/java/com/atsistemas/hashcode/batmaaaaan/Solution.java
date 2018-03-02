@@ -26,6 +26,7 @@ public class Solution {
 	private Integer carsNumber = 800;
 	private Integer raceNumber = 1000;
 	private Integer bonus = 1000;
+	private Integer limit = 1000;
 	private String inputFile = "";
 	private Score score;
 
@@ -50,7 +51,7 @@ public class Solution {
 			}
 		}
 
-		score = new Score(carreras,bonus);
+		score = new Score(carreras,bonus,limit);
 
 	}
 	public Solution(String inputFile, String solucionParcial, String candidate) throws FileNotFoundException, IOException {
@@ -64,6 +65,7 @@ public class Solution {
 			carsNumber = Integer.parseInt(datos[2]);
 			raceNumber = Integer.parseInt(datos[3]);
 			bonus = Integer.parseInt(datos[4]);
+			limit = Integer.parseInt(datos[5]);
 			while ((fileLine = br.readLine()) != null) {
 				List<Ride> fila = new ArrayList<>();
 				datos = fileLine.split(" ");
@@ -88,7 +90,7 @@ public class Solution {
 				cars.add(carrerasCoche);
 			}
 		}
-		score = new Score(carreras,bonus);
+		score = new Score(carreras, bonus, limit);
 		evaluate();
 
 	}
@@ -149,7 +151,7 @@ public class Solution {
 			result.append("\n");
 		}
 
-		try (FileWriter fileWriter = new FileWriter(new File("files/" + folder + "/"+ inputFile + "-" + puntuacion + "-" + new Date() + ".txt"))) {
+		try (FileWriter fileWriter = new FileWriter(new File("files/" + folder + "/"+ inputFile + "-" + puntuacion + "-" + Math.random() + ".txt"))) {
 			fileWriter.write(result.toString());
 		} catch (IOException e) {
 			LOGGER.error(e.getMessage());

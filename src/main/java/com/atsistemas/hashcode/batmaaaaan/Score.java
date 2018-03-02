@@ -8,15 +8,17 @@ import org.slf4j.LoggerFactory;
 
 public class Score {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Score.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Score.class);
 	private List<Ride> carreras = new ArrayList<>();
 	private Integer bonus;
-	
-	public Score(List<Ride> carreras, Integer bonus) {
+	private Integer limit;
+
+	public Score(List<Ride> carreras, Integer bonus, Integer limit) {
 		this.carreras.addAll(carreras);
 		this.bonus = bonus;
+		this.limit = limit;
 	}
-	
+
 	public Integer calculaScore(List<String> carrerasCoche) {
 		Integer score = 0;
 		Integer step = 0;
@@ -27,12 +29,13 @@ public class Score {
 			Integer distancia = carrera.getDistancia();
 			Integer inicio = carrera.getInicio();
 			Integer fin = carrera.getFin();
-			if (step + distancia <= fin) {
-				score += distancia;
-				if (step == inicio) {
-					score += bonus;
-				}
-			}
+			if (step + distancia < limit) {
+				if (step + distancia <= fin) {
+					score += distancia;
+					if (step == inicio) {
+						score += bonus;
+					}
+				}}
 			ultimaPosicion = carrera.getCoordFin();
 		}
 		return score;
