@@ -34,5 +34,9 @@ public class Posicion {
 		int cateto2 = this.y - parametros.getY();
 		return Math.abs(cateto1) + Math.abs(cateto2);
 	}
-
+	public String toString() {
+		StringBuilder builder = new StringBuilder(50);
+		builder.append("[").append(x).append(", ").append(y).append("]");
+		return builder.toString();
+	}
 }

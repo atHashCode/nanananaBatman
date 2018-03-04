@@ -5,14 +5,16 @@ import org.slf4j.LoggerFactory;
 
 public class Ride {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ride.class);
+	private Integer indice;
 	private Posicion coordInicio;
 	private Posicion coordFin;
 	private Integer inicio;
 	private Integer fin;
 	private Integer distancia;
 
-	public Ride(Integer coordInicioRow, Integer coordInicioCol,Integer coordFinRow,Integer coordFinCol,Integer tiempoInicio,Integer tiempoFin) {
-		coordInicio = new Posicion(coordInicioRow,coordInicioCol);;
+	public Ride(Integer indice, Integer coordInicioRow, Integer coordInicioCol,Integer coordFinRow,Integer coordFinCol,Integer tiempoInicio,Integer tiempoFin) {
+		this.indice = indice;
+		coordInicio = new Posicion(coordInicioRow,coordInicioCol);
 		coordFin = new Posicion(coordFinRow,coordFinCol);
 		inicio = tiempoInicio;
 		fin = tiempoFin;
@@ -20,8 +22,12 @@ public class Ride {
 	}
 
 	public Integer distanciaACarrera(Ride ride) {
-		return this.getCoordFin().calcularDistanciaDesde(ride.getCoordInicio());
+		return distancia;
 	}
+	public Integer distanciaACarrera(Posicion desde) {
+		return this.getCoordFin().calcularDistanciaDesde(desde);
+	}
+
 	/**
 	 * @return the coordInicio
 	 */
@@ -90,6 +96,26 @@ public class Ride {
 	 */
 	public void setDistancia(Integer distancia) {
 		this.distancia = distancia;
+	}
+
+	/**
+	 * @return the indice
+	 */
+	public Integer getIndice() {
+		return indice;
+	}
+
+	/**
+	 * @param indice the indice to set
+	 */
+	public void setIndice(Integer indice) {
+		this.indice = indice;
+	}
+	
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("(").append(indice).append(" ").append(this.coordInicio).append("->").append(this.coordFin).append("<").append(this.inicio).append(":").append(this.fin).append(">").append(this.distancia);
+		return builder.toString();
 	}
 
 }

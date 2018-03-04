@@ -8,17 +8,52 @@ import org.slf4j.LoggerFactory;
 
 public class App 
 {
-	
+
 	final static String FILENAME = "a_example.in";
 	final static String PARTIAL_SOLUTION = "";
 	final static Integer RETRIES = 1000;
-	
+
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 
-	    final Logger LOGGER = LoggerFactory.getLogger(App.class);
-	    Integer puntuacion = 0;
-	    Integer nuevaPuntuacion = 0;
+		final Logger LOGGER = LoggerFactory.getLogger(App.class);
+		Integer puntuacion = 0;
+		Integer nuevaPuntuacion = 0;
+		Solution finalSolution;
+//		Solution solution = new Solution("a_example.in", "a_example.in.txt");
+//		finalSolution = new Solution("d_metropolis.in");
+//		finalSolution.generateSolution();
+//		finalSolution.save("output/d");
+//		
+//		Solution solution = new Solution("d_metropolis.in", "d_metropolis.in.txt");
+//		solution = new Solution("c_no_hurry.in", "c_no_hurry.in.txt");
+//		solution = new Solution("d_metropolis.in", "d_metropolis.in.txt");
+		for (int i = 0; i< 500; i++) {
+			LOGGER.info("a_example.in Iteraccion " + i);
+			finalSolution = new Solution("a_example.in");
+			finalSolution.generateSolution();
+			finalSolution.save("output/a");
 
+			LOGGER.info("b_should_be_easy.in Iteraccion " + i);
+			finalSolution = new Solution("b_should_be_easy.in");
+			finalSolution.generateSolution();
+			finalSolution.save("output/b");
+
+			LOGGER.info("c_no_hurry.in Iteraccion " + i);
+			finalSolution = new Solution("c_no_hurry.in");
+			finalSolution.generateSolution();
+			finalSolution.save("output/c");
+
+			LOGGER.info("d_metropolis.in Iteraccion " + i);
+			finalSolution = new Solution("d_metropolis.in");
+			finalSolution.generateSolution();
+			finalSolution.save("output/d");
+
+			LOGGER.info("e_high_bonus.in Iteraccion " + i);
+			finalSolution = new Solution("e_high_bonus.in");
+			finalSolution.generateSolution();
+			finalSolution.save("output/e");
+		}
+		/*
 		Solution finalSolutionS = new Solution("d_metropolis.in", "d_metropolis.txt", PARTIAL_SOLUTION);
 		finalSolutionS.evaluate();
 		Solution finalSolution = new Solution("a_example.in", PARTIAL_SOLUTION);
@@ -42,7 +77,7 @@ public class App
 				solution.optimize();
 				nuevaPuntuacion = solution.evaluate();
 				solution.mutate();
-				
+
 				if (nuevaPuntuacion>=puntuacion)  { 
 					LOGGER.info("DING!!! on " + i + " - " + (nuevaPuntuacion-puntuacion) + " - " + solution.getFilename());
 					puntuacion = nuevaPuntuacion;
@@ -91,7 +126,7 @@ public class App
 				solution.optimize();
 				nuevaPuntuacion = solution.evaluate();
 				solution.mutate();
-				
+
 				if (nuevaPuntuacion>=puntuacion)  { 
 					LOGGER.info("DING!!! on " + i + " - " + (nuevaPuntuacion-puntuacion) + " - " + solution.getFilename());
 					puntuacion = nuevaPuntuacion;
@@ -107,7 +142,7 @@ public class App
 				solution.optimize();
 				nuevaPuntuacion = solution.evaluate();
 				solution.mutate();
-				
+
 				if (nuevaPuntuacion>=puntuacion)  { 
 					LOGGER.info("DING!!! on " + i + " - " + (nuevaPuntuacion-puntuacion) + " - " + solution.getFilename());
 					puntuacion = nuevaPuntuacion;
@@ -144,6 +179,6 @@ public class App
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		 */
 	}
 }
